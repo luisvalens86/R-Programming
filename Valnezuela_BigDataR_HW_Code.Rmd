@@ -1,0 +1,111 @@
+---
+title: "Big Data HW R Programming"
+author: "Luis Valenzuela"
+date: "11/2/2022"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. Show the code and the result if x = 3 and y = 7  (show each of the following separately, DO NOT COMBINE THEM)
+
+```{r}
+
+x <- 3
+y <- 7
+
+#A.to plot the point (x, y)
+plot(x,y)
+
+#B. plot the point (y, x), without changing the values already set
+plot(y,x)
+
+#C.to plot the point where x = x + 4 and y = y + 5, without changing the values already set
+x = x+4
+y = y+5
+plot(x,y)
+
+#D. plot a series of points where x is odd positive numbers and y is even positive numbers less than or equal to 10 
+
+#E. Name the graph from above to “My graph”, the x axis to “odd number” and the y-axis to “even numbers”
+
+#F. connect the plot points with a single line
+
+#G. change the line color to red
+
+#H.change the plot points to a symbol O symbol
+
+x <- c(1,3,5,7,9)
+y <- c(2,4,6,8,10)
+
+#single line
+plot(x,y, main="My Graph", xlab="odd number", ylab="even numbers", pch=13, col="red", cex=2, type="l")
+
+#change the plot point to a symbol
+plot(x,y, main="My Graph", xlab="odd number", ylab="even numbers", pch=13, col="red", cex=2)
+
+#I. what is the summary of x and y?
+summary(x)
+summary(y)
+```
+
+
+## 2. There is a dataset within R called “mtcars”. 
+
+
+```{r}
+
+#2. Show the Summary,str, head, and tail of mtcars
+
+#summary
+summary(mtcars)
+
+#str
+head(mtcars)
+
+#head
+str(mtcars)
+
+#tail
+tail(mtcars)
+```
+
+```{r}
+#B. show a scatter plot matrix on mpg, wt, and hp
+pairs(~mpg+wt+hp,data=mtcars,
+      main="Scatterplot Matrix")
+
+#C. plot the hp against the mpg
+plot(mtcars$hp, mtcars$mpg,
+  col='purple',
+       main='hp against the mpg',
+       xlab='mpg',
+      ylab= 'hp',
+      pch=19)
+#D. plot the histogram for the cylinders
+hist(mtcars$cyl,breaks = 10, col='green', main='Histogram', xlab = 'cyl', ylab = 'Frequency')
+
+
+#E. plot the density of the car’s weight
+p <- density(mtcars$wt)
+plot(p)
+
+#F. table() creates a table of information, create a table showing the cylinders
+table(mtcars$cyl)
+
+#G. show the pie chart for the above
+freq = table(mtcars$cyl)
+pie(freq, main = "mtcars cylinders")
+
+#H. show the bar chart for the same
+barplot(freq, main = "mtcars cylinders barchart", col = "orange")
+
+#I. show the horizontal bar chart for the same
+
+barplot(freq, main = "mtcars cylinders barchart",col ='orange', horiz = TRUE)
+```
+
